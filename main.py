@@ -26,5 +26,4 @@ def main():
     comparacion.minima_perdida(sistema, pyphi_info)
 
 if __name__ == "__main__":
-    for i in range(30):
-        main()
+    main()
