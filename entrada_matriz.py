@@ -22,7 +22,7 @@ def main():
     # Convertimos la lista `resultados` a un arreglo numpy con la forma final
     resultado_matriz = np.array(resultados)
     # exportar a csv
-    pd.DataFrame(resultado_matriz).to_csv('resultado_10.csv', index=False, header=False)
+    pd.DataFrame(resultado_matriz).to_csv('resultado_6.csv', index=False, header=False)
 
 if __name__ == '__main__':
     main()

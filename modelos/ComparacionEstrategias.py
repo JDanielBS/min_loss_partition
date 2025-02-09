@@ -313,7 +313,7 @@ class ComparacionEstrategias:
 
             self.combinaciones_e3_pyphi.append(mejor_particion)
 
-    def prueba_con_subsistema(self, subsistema, info_pyphi):
+    def prueba_con_subsistema(self, sistema, info_pyphi):
         """
         Realiza un prueba con un único subsistema.
 
@@ -323,7 +323,7 @@ class ComparacionEstrategias:
             La información contiene el estado inicial, el sistema candidato, los labels,
             el subsistema futuro y el subsistema presente.
         """
-        purview, mechanism = str(subsistema.get_subsistema_futuro()), str(subsistema.get_subsistema_presente())
+        purview, mechanism = str(sistema.get_subsistema_futuro()), str(sistema.get_subsistema_presente())
 
         solucion_pyphi, tiempo_pyphi = self.pyphi_code(info_pyphi)
         existe_solucion = False
@@ -331,7 +331,7 @@ class ComparacionEstrategias:
 
         while not existe_solucion:
             intentos += 1
-            solucion_e3, tiempo_e3 = self.estrategia3(sistemaCambiante)
+            solucion_e3, tiempo_e3 = self.estrategia3(sistema)
             existe_solucion = self.son_cercanos(solucion_pyphi['emd'], solucion_e3['emd'])
             # ic(existe_solucion, solucion_pyphi['emd'], solucion_e3['emd'], str(solucion_pyphi['min_info_part']), solucion_e3['particion_formateada'])
             
@@ -382,8 +382,8 @@ class ComparacionEstrategias:
         nombre_archivo = 'solucion_pyphi.xlsx'
         df.to_excel(nombre_archivo, index=False)
 
-    def minima_perdida(self, subsistema, info_pyphi):
-        self.prueba_con_subsistema(subsistema, info_pyphi)
+    def minima_perdida(self, sistema, info_pyphi):
+        self.prueba_con_subsistema(sistema, info_pyphi)
 
         # Crear un DataFrame a partir de la lista de JSON
         df = pd.DataFrame(self.combinaciones_e3_pyphi)

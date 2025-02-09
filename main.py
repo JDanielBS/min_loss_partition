@@ -11,7 +11,7 @@ def main():
     comparacion = ComparacionEstrategias(tpm_estado_nodo, tpm)
 
     # Crear el subsistema, tiene la siguiente estructura (estado inicial, sistema candidato, mecanismo, purview)
-    sistema = Sistema('100010', '111111', '111111', '111111')
+    sistema = Sistema('100000', '111111', '111111', '111111')
 
     # Establecer información de PyPhi
     pyphi_info = {
